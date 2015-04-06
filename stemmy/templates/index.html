@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}Stemmy | The stemming algorithms tester{% endblock %}
+
+{% block content %}
+    <section class="source">
+        <header class="floating-header">
+            <small>
+                Source
+                <span class="stemming-algorithm">Porter2</span>
+            </small>
+        </header>
+        <section class="source-content">
+            <textarea class="source-area" name="source" aria-hidden="true"></textarea>
+        </section>
+    </section>
+    <section class="result">
+        <header class="floating-header">
+            <small>
+                Result
+                <span id="word-count" class="word-count"></span>
+            </small>
+        </header>
+        <section class="result-content">
+            <div id="result"></div>
+        </section>
+    </section>
+{% endblock %}
