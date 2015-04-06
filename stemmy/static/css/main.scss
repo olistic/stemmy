@@ -146,11 +146,20 @@ body {
     width: 100%;
 }
 
-.stemming-algorithm,
+.stemming-algorithms,
 .word-count {
     float: right;
     position: relative;
     top: 2px;
+}
+
+.stemming-algorithms a {
+    color: #d1d0c7;
+    text-decoration: inherit;
+
+    &.active {
+        color: #abaaa2;
+    }
 }
 
 .result-content {
