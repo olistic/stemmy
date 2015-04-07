@@ -56,8 +56,8 @@ algorithmLinkClick = (event) ->
   stemWords()
 
   # Update active link
-  $("a").removeClass("active");
-  $("##{algorithm}-algorithm").addClass("active");
+  $("a").removeClass "active"
+  $("##{algorithm}-algorithm").addClass "active"
 
 ready = ->
   countWords()
