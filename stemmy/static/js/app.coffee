@@ -1,5 +1,7 @@
-events = "change keyup keydown keypress paste drop"
+# events = "change keyup keydown keypress paste drop"
+events = "input"
 algorithm = "porter2"
+pendingAjax = 0
 
 wordCount = (s) ->
   # Check for only whitespace characters
@@ -32,10 +34,19 @@ stemWords = ->
     data:
       algorithm: algorithm
       source: $("textarea[name='source']").val()
+    beforeSend: ->
+      pendingAjax++
+      $("#result").css opacity: 0.6
     success: (data, status, response) ->
+      $("#result").css color: "#3c4043"
       $("#result").html data
     error: ->
-      $("#result").html "Error"
+      $("#result").css color: "#e25440"
+      $("#result").html "Error stemming source with #{algorithm} algorithm"
+    complete: ->
+      pendingAjax--
+      if pendingAjax <= 0
+        $("#result").css opacity: 1
 
 algorithmLinkClick = (event) ->
   # Update algorithm
